@@ -31,15 +31,15 @@ enum MemberRelation {
 }
 
 model User {
-  id           String      @id @default(cuid())
-  email        String      @unique
+  id           String     @id @default(cuid())
+  email        String     @unique
   name         String
   passwordHash String
   role         UserRole
-  createdAt    DateTime    @default(now())
-  updatedAt    DateTime    @updatedAt
-  createdCards Card[]      @relation("CardCreator")
-  updatedCards Card[]      @relation("CardUpdater")
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  createdCards Card[]     @relation("CardCreator")
+  updatedCards Card[]     @relation("CardUpdater")
   auditLogs    AuditLog[]
 }
 
@@ -55,12 +55,12 @@ model Plan {
 }
 
 model Household {
-  id        String    @id @default(cuid())
+  id        String   @id @default(cuid())
   headName  String
   address   String
   phone     String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   members   Member[]
   card      Card?
 }
